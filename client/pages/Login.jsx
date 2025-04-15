@@ -1,8 +1,11 @@
 import React from 'react'
+import loginNavbar from '../components/loginNavbar.jsx'
 
 const Login = () => {
   return (
-    <div>Login</div>
+    <div>
+      <loginNavbar />
+    </div>
   )
 }
 
