@@ -1,0 +1,21 @@
+@use '../utils/variables' as vars;
+
+::-webkit-scrollbar {
+    background-color: vars.$background-comp;
+    width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: vars.$Daniel;
+    border-radius: 12px;
+    width: 2px;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: vars.$font-family;
+    background-color: vars.$background-comp;
+    overflow: hidden;
+}

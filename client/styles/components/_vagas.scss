@@ -1,0 +1,295 @@
+@use "../utils/variables" as vars;
+
+.Cards {
+    background-color: vars.$background-dark;
+    border-radius: 10px;
+    width: 98%;
+    margin: 5px 20px;
+    height: 85vh;
+    margin-top: 13px;
+    display: flex;
+    flex-direction: column;
+
+    .component-pagination {
+        color: white;
+        padding-top: 10px;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+
+        .titulo-vagas {
+            font-size: 1.4rem;
+            margin: 5px 20px;
+        }
+
+        hr {
+            border: 0.5px solid vars.$hr-color;
+            margin: 10px 10px;
+        }
+
+        .component-cards {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            padding: 10px 10px 0px 10px;
+            gap: 10px;
+        }
+
+        .pagination-container {
+            margin-top: auto; // Empurra a paginação para baixo
+
+           .pagination {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+            list-style: none;
+
+            a {
+                text-decoration: none;
+                color: white;
+            }
+
+            :visited {
+                color: white;
+            }
+        } 
+        }
+
+        
+    }
+
+   
+    .Card {
+        background-color: #444444;
+        width: 445px;
+        border-radius: 5px;
+        padding: 5px;
+        display: flex;
+        flex-direction: column;
+
+        .infos {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 3px;
+            padding-left: 5px;
+            color: white;
+            font-size: 0.95rem;
+
+            header {
+                display: flex;
+                justify-content: space-between;
+                margin-right: 10px;
+                align-items: center;
+
+                .Titulo {
+                    display: flex;
+                    align-items: center;
+
+                     .Nome {
+                        font-size: 1.2rem;
+                        font-weight: 500;
+                        margin-right: 5px;
+                    }
+
+                    .id {
+                        font-size: 0.8rem;
+                        font-weight: 500;
+                    }
+                }
+
+                button {
+                    border: none;
+                    color: white;
+                    padding: 3px 30px;
+                    border-radius: 20px;
+                }
+            }
+
+            .details {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                gap: 3px;
+                padding-left: 10px;
+                padding-top: 5px;
+                color: white;
+                font-size: 0.90rem;
+            }
+
+            footer {
+                display: flex;
+                justify-content: space-between;
+                margin: 20px 5px 10px 5px;
+                align-items: center;
+
+                .candidatos {
+                    display: flex;
+                    align-items: center;
+                    gap: 3px;
+                    font-size: 1rem;
+
+                    .faNews {
+                        width: 25px;
+                        height: 22px;
+                        cursor: pointer;
+                    }
+                }
+
+                .acoes {
+                    display: flex;
+                    gap: 5px;
+
+                    .cgNotes {
+                        width: 21px;
+                        height: 21px;
+                        cursor: pointer;
+                    }
+
+                    .faEdit {
+                        width: 25px;
+                        height: 20px;
+                        cursor: pointer;
+                    }
+
+                    .faTrash {
+                        width: 20px;
+                        height: 20px;
+                        cursor: pointer;
+                    }
+                }
+            }
+
+            strong {
+                font-weight: 500;
+            }
+        }
+    }
+}
+
+@media (max-width: 1600px) {
+    
+.Cards {
+    width: 98%;
+    margin: 5px 15px;
+    height: 79vh;
+    margin-top: 10px;
+
+    .component-pagination {
+        color: white;
+        padding-top: 10px;
+
+        .titulo-vagas {
+            font-size: 1.4rem;
+            margin: 20px;
+        }
+
+        hr {
+            border: 0.5px solid #444444;
+            margin: 10px 10px;
+        }
+
+        .component-cards {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            padding: 10px;
+            gap: 10px;
+        }
+
+        .pagination {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 8px;
+            list-style: none;
+
+            a {
+                text-decoration: none;
+                color: white;
+            }
+
+            :visited {
+                color: white;
+            }
+        }
+    }
+
+   
+    .Card {
+        width: 420px;
+
+        .infos {
+            font-size: 0.70rem;
+
+            header {
+                margin-right: 5px;
+
+                .Titulo {
+                     .Nome {
+                        font-size: 0.95rem;
+                    }
+
+                    .id {
+                        font-size: 0.7rem;
+                    }
+                }
+
+                button {
+                    padding: 3px 20px;
+                    font-size: 0.8rem;
+                }
+            }
+
+            .details {
+                font-size: 0.80rem;
+            }
+
+            footer {
+                display: flex;
+                justify-content: space-between;
+                margin: 20px 5px 10px 5px;
+                align-items: center;
+
+                .candidatos {
+                    display: flex;
+                    align-items: center;
+                    gap: 3px;
+                    font-size: 0.8rem;
+
+                    .faNews {
+                        width: 17px;
+                        height: 17px;
+                    }
+                }
+
+                .acoes {
+                    display: flex;
+                    gap: 5px;
+
+                    .cgNotes {
+                        width: 17px;
+                        height: 18px;
+                    }
+
+                    .faEdit {
+                        width: 17px;
+                        height: 17px;
+                    }
+
+                    .faTrash {
+                        width: 17px;
+                        height: 17px;
+                    }
+                }
+            }
+
+            strong {
+                font-weight: 500;
+            }
+        }
+    }
+}
+    
+}

@@ -1,0 +1,76 @@
+@use '../utils/variables' as vars;
+
+ .login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+    background-color: #161515;
+    color: #e9e9e9;
+
+    .hidden {
+        display: none;
+        opacity: 0;
+        transition: opacity .5s ease;
+        pointer-events: none;
+        cursor: default;
+    }
+
+    .show {
+        opacity: 1;
+        pointer-events: auto;
+        cursor: text;
+    }
+
+    h2 {
+        margin: 5px;
+        font-weight: 200;
+        margin-bottom: 5px;
+    }
+
+    form {
+        .form-control {
+            display: flex;
+            flex-direction: column;
+            
+            input {
+                margin: 10px 0px;
+                border: none;
+                background-color: #252525;
+                border-radius: 5px;
+                padding: 9px 9px;
+                color: #e9e9e9;
+                &:focus{
+                    outline: none;
+                    background-color: #00FBBD30;
+                    border: 3px solid vars.$Daniel inset;
+                    transition: all .6s ease-in-out;
+                }
+            }
+
+            #pass {
+                transition: opacity 2s;
+                opacity: 1;
+            }
+        }
+        
+        button {
+            background-color: vars.$Daniel;
+            padding: 10px 12px;
+            border: none;
+            border-radius: 5px;
+            width: 100%;
+            margin: 10px 0px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+    }
+
+    #error {
+        margin-top: 20px;
+        font-weight: bold;
+        color: #f93535;
+    }
+}   

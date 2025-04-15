@@ -1,0 +1,329 @@
+@use "../utils/variables" as vars;
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    backdrop-filter: blur(2px);
+  }
+  
+  .process-modal {
+    background-color: vars.$background-dark;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 500px;
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    transform: translateY(0);
+    animation: modalFadeIn 0.3s ease-out;
+  
+    @keyframes modalFadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  
+    .modal-header {
+      padding: 18px 24px;
+      background-color: vars.$background-dark;
+      border-bottom: 1px solid vars.$hr-color;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+  
+      h3 {
+        margin: 0;
+        font-size: 1.3rem;
+        font-weight: 600;
+      }
+  
+      .close-btn {
+        background: none;
+        border: none;
+        font-size: 1.8rem;
+        cursor: pointer;
+        color: #6c757d;
+        padding: 0 8px;
+        transition: all 0.2s;
+  
+        &:hover {
+          color: #333;
+          transform: scale(1.1);
+        }
+      }
+    }
+  
+    .modal-body {
+      padding: 20px;
+      overflow-y: auto;
+      flex-grow: 1;
+  
+      .add-step-container {
+        display: flex;
+        margin-bottom: 20px;
+        gap: 12px;
+  
+        input {
+          flex-grow: 1;
+          padding: 10px 15px;
+          background-color: #444444;
+          border: 1px solid #525252;
+          color: white;
+          border-radius: 6px;
+          font-size: 14px;
+          transition: all 0.2s;
+        }
+  
+        .add-btn {
+          background-color: vars.$Daniel;
+          border: none;
+          border-radius: 6px;
+          padding: 0 20px;
+          cursor: pointer;
+          font-size: 14px;
+          font-weight: 500;
+          transition: all 0.2s;
+          display: flex;
+          align-items: center;
+          gap: 6px;
+  
+          &:hover {
+            background-color: vars.$Daniel-dark;
+          }
+  
+          &:active {
+            transform: translateY(0);
+          }
+        }
+      }
+  
+      .steps-list {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+  
+      .step-item {
+        padding: 14px 18px;
+        border-radius: 8px;
+        color: white;
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+        cursor: grab;
+        position: relative;
+  
+        &:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+          z-index: 2;
+        }
+  
+        &:active {
+          cursor: grabbing;
+        }
+      }
+  
+      .step-content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+      }
+  
+      .drag-handle {
+        font-size: 24px;
+        cursor: grab;
+        user-select: none;
+        opacity: 0.7;
+        transition: opacity 0.2s;
+        flex-shrink: 0;
+  
+        &:hover {
+          opacity: 1;
+        }
+      }
+  
+      .step-info {
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        min-width: 0;
+      }
+  
+      .step-name {
+        font-weight: 600;
+        font-size: 15px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+  
+      .step-date {
+        font-size: 13px;
+        opacity: 0.9;
+        margin-top: 4px;
+      }
+  
+      .step-actions {
+        display: flex;
+        gap: 10px;
+        margin-left: 10px;
+        flex-shrink: 0;
+      }
+  
+      .color-btn {
+        position: relative;
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        border: 2px solid rgba(255, 255, 255, 0.7);
+        cursor: pointer;
+        overflow: hidden;
+        padding: 0;
+        transition: all 0.2s;
+        flex-shrink: 0;
+  
+        &:hover {
+          transform: scale(1.1);
+          border-color: white;
+        }
+  
+        .color-indicator {
+          display: block;
+          width: 100%;
+          height: 100%;
+          border-radius: 50%;
+          background: conic-gradient(
+            #f00, #ff0, #0f0, #0ff, #00f, #f0f, #f00
+          );
+        }
+      }
+  
+      .remove-btn {
+        background: rgba(0, 0, 0, 0.2);
+        border: none;
+        color: white;
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: bold;
+        transition: all 0.2s;
+        flex-shrink: 0;
+  
+        &:hover {
+          background: rgba(0, 0, 0, 0.3);
+          transform: scale(1.1);
+        }
+      }
+  
+      .color-picker-popup {
+        position: relative;
+        margin-top: 15px;
+        padding: 20px;
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        z-index: 10;
+        animation: popupFadeIn 0.2s ease-out;
+  
+        @keyframes popupFadeIn {
+          from {
+            opacity: 0;
+            transform: translateY(10px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+  
+        .react-colorful {
+          width: 100%;
+          height: 160px;
+          margin-bottom: 15px;
+        }
+  
+        .current-color {
+          margin-top: 10px;
+          padding: 10px;
+          color: white;
+          text-align: center;
+          border-radius: 6px;
+          font-family: monospace;
+          font-size: 14px;
+          font-weight: bold;
+          text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+          letter-spacing: 1px;
+        }
+  
+        .close-picker {
+          display: block;
+          margin-top: 15px;
+          padding: 8px 16px;
+          background: #f0f0f0;
+          border: none;
+          border-radius: 6px;
+          cursor: pointer;
+          width: 100%;
+          font-weight: 500;
+          transition: all 0.2s;
+  
+          &:hover {
+            background: #e0e0e0;
+            transform: translateY(-1px);
+          }
+  
+          &:active {
+            transform: translateY(0);
+          }
+        }
+      }
+    }
+  
+    .modal-footer {
+      padding: 18px 24px;
+      background-color: vars.$background-dark;
+      border-top: 1px solid vars.$hr-color;
+      display: flex;
+      justify-content: flex-end;
+  
+      .save-btn {
+        background-color: vars.$Daniel;
+        border: none;
+        border-radius: 6px;
+        padding: 10px 24px;
+        cursor: pointer;
+        font-size: 15px;
+        font-weight: 500;
+        transition: all 0.2s;
+  
+        &:hover {
+          background-color: vars.$Daniel-dark;
+        }
+  
+        &:active {
+          transform: translateY(0);
+        }
+      }
+    }
+  }

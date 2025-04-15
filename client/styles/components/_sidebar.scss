@@ -1,0 +1,165 @@
+@use '../utils/variables' as vars;
+
+.sideContainer {
+    position: absolute;
+    z-index: 2;
+    height: 97svh;
+    transition: all .8s ease-in-out;
+    margin-left: 10px;
+
+    &.open {
+        width: 100%;
+        background-color: #00000077;
+    }
+
+    .sidebar {
+        position: sticky;
+        background-color: #151515;
+        flex-direction: column;
+        border-radius: 8px;
+        width: 67px;
+        height: 97svh;
+        overflow: hidden;
+        transition: all .8s ease-in-out;
+        
+        ul {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            list-style: none;
+            padding: 0;
+            width: 100%;
+            height: 97%;
+    
+            .titleNav {
+                color: white;
+            }
+    
+            a {
+                text-decoration: none;
+                color: #e9e9e9;
+                
+                li {
+                    display: flex;
+                    gap: 15px;
+                    align-items: center;
+                    padding: 5px 13px;
+                    transition: .3s;
+                    margin: 5px 10px;
+                    border-radius: 5px;
+                    background-color: #d9d9d92a;
+                    height: 30px;
+    
+                    i {
+                        display: flex;
+                        align-items: center;
+                        font-size: 20px;
+                    }
+    
+                    .titleNav {
+                        opacity: 0;
+                    }
+                    
+                    .titleNav.open{
+                        display: block;
+                        opacity: 1;
+                        transition: opacity 1s linear 0.5s;
+                    }
+                }
+    
+            }
+    
+            .toggle {
+                display: flex;
+                gap: 20px;
+                justify-content: space-between;
+                color: white;
+                text-align: end;
+                padding: 10px 16px;
+                cursor: pointer;
+                align-content: center;
+                
+                i {
+                    font-size: 20px;
+                    margin-left: 8px;
+                }
+                
+                .titleNav {
+                    visibility: hidden;
+                }
+    
+                .titleNav.open{
+                    display: block;
+                    visibility: visible;
+                    transition: visibility 2s linear 0.5s;
+                }
+    
+            }
+        }
+    }
+
+
+    .logout {
+        justify-self: end;
+
+        li {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 5px;
+            transition: .3s;
+            margin: 10px;
+            border-radius: 5px;
+            background-color: #d9d9d92a;
+            color: #e9e9e9;
+            
+            a {
+                padding: 5px 8px;
+                border-radius: 5px;
+                color : white;
+                background-color: #d9d9d92a;
+            }
+
+            i {
+                padding: 8px 10px;
+                display: flex;
+                align-items: center;
+            }
+
+            #titleLog, #logoutButton {
+                opacity: 0;
+            }
+            
+            #titleLog.open, #logoutButton.open{
+                display: block;
+                opacity: 1;
+                transition: opacity 1s linear 0.5s;
+            }
+
+            #logoutButton.open {
+                border: none;
+                padding: 5px 10px;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+        }
+    }
+
+    .dropdown {
+        display: none;
+        background-color: #162730;
+
+        li {
+            padding: 10px 50px;
+        }
+    }
+
+    .dropdown.open {
+        display: block;
+    }
+}
+
+.sidebar.open {
+    width: 250px;
+}
+

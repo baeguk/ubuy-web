@@ -1,0 +1,16 @@
+@use '../utils/variables' as vars;
+
+.wrapper {
+    width: 40vh; 
+    div {
+        div {
+            &:first-child {
+                background-color: vars.$Daniel !important;
+            }
+
+            span {
+                color: #000 !important;
+            }
+        }
+    }
+}

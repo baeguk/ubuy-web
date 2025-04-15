@@ -1,0 +1,264 @@
+@use "../utils/variables" as vars;
+
+.candidatos {
+    color: white;
+    .header-candidatos {
+        margin: 0px 20px;
+        margin-bottom: 5px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+        .titulo {
+            font-size: 1.2rem;
+        }
+
+        .select-etapas {
+            margin-bottom: 7px;
+            select {
+                padding: 8px 15px;
+                border-radius: 4px;
+                border: 1px solid #ccc;
+                transition: background-color 0.3s ease;
+                border: none;
+                color: white;
+                cursor: pointer;
+                appearance: none;
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                padding-right: 30px; 
+                
+                &.status-fechado {
+                  background-color: red; 
+                  &:hover {
+                    background-color: darken(red, 5%);
+                  }
+                }
+
+                &.status-aberto {
+                  background-color: green; 
+                  &:hover {
+                    background-color: darken(green, 5%);
+                  }
+                }
+            }
+
+            select option {
+                background-color: #444;
+                color: white;
+                padding: 5px;
+                cursor: pointer;
+            }
+        }
+
+        .filters {
+            display: flex;
+            flex-direction: row;
+            gap: 15px;
+            align-items: center;
+    
+            .select {
+                display: flex;
+                gap: 10px;
+                align-items: center;
+            }
+    
+            .search-container {
+                position: relative;
+                width: 220px;
+    
+                .search-input {
+                    background-color: rgb(217, 217, 217, 20%);
+                    color: white;
+                    padding-left: 10px;
+                    width: 215px;
+                    height: 30px;
+                    border-radius: 15px;
+                    border: none;
+                    margin-right: 0px;
+                    outline: none;
+                }
+    
+                .search-icon {
+                    position: absolute;
+                    right: 0;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    font-size: 20px;
+                    color: #aaa;
+                    pointer-events: none;
+                }
+            }
+        }
+    }
+    .content {
+        display: flex;
+        flex-direction: row;
+
+        .content-vaga {
+            background-color: #151515;
+            width: 91.5%;
+            border-radius: 8px;
+            margin: 5px;
+
+            .nav-candidatos {
+                display: flex;
+                padding: 20px;
+                gap: 30px;
+                font-size: 1.2rem;
+                color: white;
+                border-bottom: 1px solid #333;
+                border-radius: 8px 8px 0 0;
+
+                .tab-button {
+                    padding: 5px 15px;
+                    text-align: center;
+                    border: none;
+                    background: transparent;
+                    cursor: pointer;
+                    position: relative;
+
+                    &:hover {
+                        color: #555;
+                    }
+
+                    &::after {
+                        content: "";
+                        display: block;
+                        height: 2px;
+                        width: 0;
+                        background: transparent;
+                        position: absolute;
+                        bottom: -2px;
+                        left: 50%;
+                        transform: translateX(-50%);
+                        transition:
+                            width 0.3s ease,
+                            background-color 0.3s ease;
+                    }
+
+                    &.active-candidatos::after {
+                        width: 100%;
+                        background-color: vars.$Daniel;
+                    }
+
+                    &.active-detalhes::after {
+                        width: 100%;
+                        background-color: vars.$Daniel;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.vaga-detalhes {
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+    height: 78vh;
+
+    .infos {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        padding: 18px 20px;
+
+        .content {
+            padding-left: 20px;
+        }
+
+        .titulo {
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        .infos-content {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+        }
+    }
+}
+
+@media (max-width: 1600px) {
+    .candidatos {
+        .header-candidatos {
+            margin-bottom: 6px;
+
+            .titulo {
+                font-size: 1.1rem;
+            }
+
+            .select-etapas {
+                select {
+                    height: 20px;
+                    margin-bottom: 0px;
+                }
+            }
+
+            .filters {
+                font-size: 0.9rem;
+                .select {
+                    select {
+                        height: 20px;
+                    }
+                }
+
+                .search-container {
+                    .search-input {
+                        height: 20px;
+                    }
+
+                    .search-icon {
+                        font-size: 17px;
+                    }
+                }
+            }
+        }
+        .content {
+            .content-vaga {
+                width: 89.5%;
+
+                .nav-candidatos {
+                    padding: 10px;
+                    gap: 20px;
+                    font-size: 0.9rem;
+
+                    .tab-button {
+                        padding: 5px 10px;
+                    }
+                }
+            }
+        }
+    }
+
+    .vaga-detalhes {
+        display: flex;
+        flex-direction: column;
+        overflow: auto;
+        height: 74vh;
+
+        .infos {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            padding: 18px 20px;
+
+            .content {
+                padding-left: 20px;
+            }
+
+            .titulo {
+                font-size: 1.1rem;
+                font-weight: 500;
+            }
+
+            .infos-content {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-around;
+            }
+        }
+    }
+}
