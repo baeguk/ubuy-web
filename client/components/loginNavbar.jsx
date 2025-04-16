@@ -1,12 +1,11 @@
 import React from 'react'
-import {logo} from '../assets/UbuyLogo2.png'
 
-const loginNavbar = () => {
+const LoginNavbar = () => {
   return (
     <div className='container-navbar'>
-      {logo}
+      <img src="../../client/assets/UbuyLogo2.png" alt="" width={100}/>
     </div>
   )
 }
 
-export default loginNavbar
+export default LoginNavbar
