@@ -1,2 +1,107 @@
 @use '../utils/variables' as vars;
 
+.Home-page {
+  .container {
+    .imagem {
+      position: relative;
+      width: 100%;
+      height: 400px; // ajuste conforme quiser
+      overflow: hidden;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(2, 73, 170, 0.4); // azul claro transparente
+        z-index: 1;
+      }
+
+      .logo {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 2;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        color: white;
+
+        img {
+          max-width: 400px;
+          height: auto;
+        }
+
+        span {
+          font-size: 1.5rem;
+          font-weight: 500;
+          margin-top: 5px;
+        }
+      }
+    }
+
+    .ad {
+        background-color: #D9D9D9;
+        margin: 40px 70px 10px 70px;
+        height: 5vh;
+    }
+
+    .content {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 2rem;
+        margin: 40px 40px 10px 40px;
+    }
+
+    .anuncio-container {
+        background-color: #F4F4F4;
+        border: 1px solid #D7D7D7;
+        border-radius: 5px;
+        padding: 1rem;
+        width: 12.5rem;
+        height: 15rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        img {
+            background-color: #D9D9D9;
+            border: none;
+            width: 100%;
+            height: 70%;
+        }
+
+        .content {
+            display: flex;
+            flex-direction: column;
+            gap: 0.1rem;
+            margin: 0.4rem 0;
+
+            span {
+               font-weight: bold;
+            }
+
+            .preco-anuncio {
+                font-size: 1.4rem;
+            }
+        }
+        .footer-anuncio {
+            display: flex;
+            justify-content: end;
+            color: #777777;
+        }
+    }
+  }
+}

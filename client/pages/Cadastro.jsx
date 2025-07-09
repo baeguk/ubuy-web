@@ -64,7 +64,7 @@ const Cadastro = () => {
                     {...register('instituicao')}
                     placeholder="Selecione sua instituição"
                   >
-                    <option value="instituicao" disabled>
+                    <option value="instituicao">
                       Selecione sua instituição
                     </option>
                     <option value="unifesp">Unifesp</option>
@@ -76,7 +76,7 @@ const Cadastro = () => {
                   </select>
                 </div>
                 <div className="date-sexo">
-                  <div className="input">
+                  <div className="input-half">
                     <span className="title-input">Data de nascimento:</span>
                     <DatePicker
                       id="dob"
@@ -89,7 +89,7 @@ const Cadastro = () => {
                       placeholderText="Selecione sua data de nascimento"
                     />
                   </div>
-                  <div className="input">
+                  <div className="input-half">
                     <span className="title-input">Sexo:</span>
                     <select
                       {...register('instituicao')}
@@ -130,9 +130,9 @@ const Cadastro = () => {
                 </div>
               </div>
             </div>
-            <button type="submit">Cadastrar</button>
+            <button type="submit" className='button-cadastro'>Cadastrar</button>
             <span className='click'>
-              Já possui cadastro? <a href="/login">Clique aqui</a> para entrar
+              Já possui cadastro? <a href="/">Clique aqui</a> para entrar
             </span>
           </form>
         </div>

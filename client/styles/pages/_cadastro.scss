@@ -15,6 +15,7 @@
             border: 1px solid #777777;
             border-radius: 10px;
             padding: 40px;
+            width: 50%;
 
             .title-logo {
                 font-weight: bold;
@@ -63,12 +64,42 @@
                         padding: 13px 10px;
                         border: 1px solid #777777;
                         border-radius: 5px;
+                        width: 400px;
 
                         &:focus {
                             outline: none;
                             border: 1.5px solid vars.$azul-logo;
                         }
                     }
+                }
+
+                .input-half {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 5px;
+                    flex: 1;
+
+                    input {
+                        padding: 13px 10px;
+                        border: 1px solid #777777;
+                        border-radius: 5px;
+
+                        &:focus {
+                            outline: none;
+                            border: 1.5px solid vars.$azul-logo;
+                        }
+                    }
+
+                    select {
+                    padding: 13px 10px;
+                    border: 1px solid #777777;
+                    border-radius: 5px;
+
+                    &:focus {
+                        outline: none;
+                        border: 1.5px solid vars.$azul-logo;
+                    }
+                }
                 }
 
                 select {
@@ -82,7 +113,7 @@
                     }
                 }
 
-                button {
+                .button-cadastro {
                     background-color: vars.$azul-logo;
                     color: white;
                     padding: 10px 120px;
@@ -90,8 +121,6 @@
                     border-radius: 40px;
                     font-weight: 600;
                     cursor: pointer;
-
-                    
                 }
 
                 .click{
